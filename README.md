@@ -2,13 +2,13 @@
 
 Control of 2D Rayleigh Benard Convection using Deep Reinforcement Learning with Tensorforce and Shenfun.
 
-Welcome to the repository DeepReinforcementLearning_RayleighBenard2D_Control. Here, you will find the scripts used for the control of two-dimensional Rayleigh Benard convection (RBC) using deep reinforcement learning (DRL). The computational fluid dynamics (CFD) solver emplyed is the spectral Galerkin code-suite 'shenfun' ([Documentation](https://shenfun.readthedocs.io/en/latest/)), which solves the flow field for the RBC. The DRL is solved using learning libraries from 'Tensorforce' ([Documentation](https://tensorforce.readthedocs.io/en/latest/)); specifically, the Proximal Policy Optimisation (PPO) algorithm is used. You will need shenfun and tensorforce installed on your system to run the code.
+Welcome to the repository DeepReinforcementLearning_RayleighBenard2D_Control. Here, you will find the scripts used for the control of two-dimensional Rayleigh Benard convection (RBC) using deep reinforcement learning (DRL). The computational fluid dynamics (CFD) solver employed is the spectral Galerkin code-suite 'shenfun' ([Documentation](https://shenfun.readthedocs.io/en/latest/)), which solves the flow field for the RBC. The DRL is solved using learning libraries from 'Tensorforce' ([Documentation](https://tensorforce.readthedocs.io/en/latest/)); specifically, the Proximal Policy Optimisation (PPO) algorithm is used. You will need shenfun and tensorforce installed on your system to run the code.
 
 DRL is applied here using two different frameworks:
 - Single agent reinforcement learning (SARL), and
 - Multi-agent reinforcement learning (MARL).
 
-Comparitive studies for the performance of both frameworks may be performed if desired. Separate scripts that apply each framework are provided in the repository and are labelled with differently. These labels are further described below. To run either framework, you would have to run its corresponding script.
+Comparative studies for the performance of both frameworks may be performed if desired. Separate scripts that apply each framework are provided in the repository and are labelled with differently. These labels are further described below. To run either framework, you would have to run its corresponding script.
 
 Installation instructions, a short tutorial, and links to pre-computed results for validation are given below.
 
@@ -47,7 +47,6 @@ pip3 install protobuf==3.20
 ```
 
 It is important to note that the requirement for the successful installation of the above is a working Linux operating system from any major distribution (Debian, CentOS , Redhat or Ubuntu)
-
 
 ## Repository description
 
