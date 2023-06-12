@@ -2,6 +2,19 @@
 
 Control of 2D Rayleigh Benard Convection using Deep Reinforcement Learning with Tensorforce and Shenfun.
 
+If using this code, please cite our paper:
+
+```
+Effective control of two-dimensional Rayleigh-Benard convection: invariant multi-agent reinforcement learning is all you need
+Colin Vignon, Jean Rabault, Joel Vasanth, Francisco Alcántara-Ávila, Mikael Mortensen, Ricardo Vinuesa
+Physics of Fluids, 2023
+```
+
+Link to:
+
+- the preprint: https://arxiv.org/abs/2304.02370
+- the paper: TODO_UPDATE
+
 Welcome to the repository DeepReinforcementLearning_RayleighBenard2D_Control. Here, you will find the scripts used for the control of two-dimensional Rayleigh Benard convection (RBC) using deep reinforcement learning (DRL). The computational fluid dynamics (CFD) solver employed is the spectral Galerkin code-suite 'shenfun' ([Documentation](https://shenfun.readthedocs.io/en/latest/)), which solves the flow field for the RBC. The DRL is solved using learning libraries from 'Tensorforce' ([Documentation](https://tensorforce.readthedocs.io/en/latest/)); specifically, the Proximal Policy Optimisation (PPO) algorithm is used. You will need shenfun and tensorforce installed on your system to run the code.
 
 DRL is applied here using two different frameworks:
@@ -13,6 +26,30 @@ Comparative studies for the performance of both frameworks may be performed if d
 Installation instructions, a short tutorial, and links to pre-computed results for validation are given below.
 
 ## Installation
+
+### Recommended: using our singularity container
+
+Installing the packages can be a bit challenging due to conflicting requirements in tensorforce and shenfun. Therefore, we recommend that you use our singularity sandbox that contains all the packages needed and is ready to use out of the box. This will require having singularity installed on your machine (check the singularity documentation for more information, see https://sylabs.io/docs/ ).
+
+The singularity sandbox was created following the instructions / steps described at: https://github.com/jerabaul29/guidelines_workflow_project .
+
+The container segments are available at: https://drive.google.com/drive/folders/1CMarYhkRqhBhingRpbcxU8ORKzKsykWO?usp=sharing .
+
+To use:
+
+- download the segments and the checksums file
+- check the integrity of the segments: ```sha256sum drlrbc2d.tar.gz*``` and compare with the content of the checksums file to check the integrity
+- append the segments into the image: ```cat drlrbc2d.tar.gz__part.?? > drlrbc2d.tar.gz```
+- check the integrity of the reconstructed image: compare ```sha256sum drlrbc2d.tar.gz``` with the content of the checksums file
+- untar: ```tar xfp drlrbc2d.tar.gz```, this results into a folder: this is actually the singularity sandbox
+- launch a terminal inside the container: ```singularity shell --writable --fakeroot --no-home singularity_sandbox/```
+- at this time, your terminal is inside the singularity sandbox, and all the software is available there. To run the code, you can simply do:
+
+```
+TODO
+```
+
+### (not recommended): installing by hand
 
 Use conda to install Tensorforce and shenfun in a virtual environment. If you dont have conda installed, you will have to do that first. You can find instructions for that [here](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html). Once installed, follow the steps below in your terminal (applies to Linux users):
 
@@ -46,7 +83,7 @@ pip3 install keras==2.6
 pip3 install protobuf==3.20
 ```
 
-It is important to note that the requirement for the successful installation of the above is a working Linux operating system from any major distribution (Debian, CentOS , Redhat or Ubuntu)
+It is important to note that the requirement for the successful installation of the above is a working Linux operating system from any major distribution (Debian, CentOS , Redhat or Ubuntu). The software stack is challenging to install as different packages have conflicting requirements: you may need to upgrade / downgrade packages by hand!
 
 ## Repository description
 
