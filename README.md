@@ -29,13 +29,13 @@ Installation instructions, a short tutorial, and links to pre-computed results f
 
 ## Installation
 
-### Recommended: using our singularity container
+### Recommended: using our singularity sandbox
 
 Installing the packages can be a bit challenging due to conflicting requirements in tensorforce and shenfun. Therefore, we recommend that you use our singularity sandbox that contains all the packages needed and is ready to use out of the box. This will require having singularity installed on your machine (check the singularity documentation for more information, see https://sylabs.io/docs/ ).
 
 The singularity sandbox was created following the instructions / steps described at: https://github.com/jerabaul29/guidelines_workflow_project .
 
-The container segments are available at: https://drive.google.com/drive/folders/1CMarYhkRqhBhingRpbcxU8ORKzKsykWO?usp=sharing .
+The sandbox segments are available at: https://drive.google.com/drive/folders/1CMarYhkRqhBhingRpbcxU8ORKzKsykWO?usp=sharing .
 
 To use:
 
@@ -44,12 +44,22 @@ To use:
 - append the segments into the image: ```cat drlrbc2d.tar.gz__part.?? > drlrbc2d.tar.gz```
 - check the integrity of the reconstructed image: compare ```sha256sum drlrbc2d.tar.gz``` with the content of the checksums file
 - untar: ```tar xfp drlrbc2d.tar.gz```, this results into a folder: this is actually the singularity sandbox
-- launch a terminal inside the container: ```singularity shell --writable --fakeroot --no-home singularity_sandbox/```
+- launch a terminal inside the sandbox: ```singularity shell --writable --fakeroot --no-home drlrbc2d```
 - at this time, your terminal is inside the singularity sandbox, and all the software is available there. To run the code, you can simply do:
 
 ```
-TODO
+Singularity> cd /home/2D_DeepReinforcementLearning_RayleighBenard_Control_Shenfun_Tensorforce-master
+Singularity> eval "$(/root/anaconda3/bin/conda shell.bash hook)"
+(base) Singularity> conda activate shenfun
+(shenfun) Singularity> python3 train_marl.py 
+[... the code will start running then ...]
 ```
+
+I.e.: move to the folder containing the code inside the sandbox, activate conda inside the sandbox, activate the correct conda environment containing all the packages in the right versions, and run any script.
+
+Note that the sandbox is just a folder on your machine, so all the files inside the sandbox (such as data files, results of simulations and DRL trainings, etc) are available at the corresponding location if you need to use them from outside the sandbox at a later point.
+
+Also note that the code within the sandbox may not be in the latest version (we do not update the sandbox each time we push updates here), but you can simply ```git clone``` or ```cp``` the version of the code you want to the sandbox - the aim of the sandbox is mostly to distribute an environment with the necessary packages in a cross compatible set of versions, and you can run any code version you want from within it.
 
 ### (not recommended): manual installation with ad hoc conda environment
 
