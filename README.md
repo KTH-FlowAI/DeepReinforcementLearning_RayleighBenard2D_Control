@@ -2,17 +2,66 @@
 
 Control of 2D Rayleigh Benard Convection using Deep Reinforcement Learning with Tensorforce and Shenfun.
 
-Welcome to the repository DeepReinforcementLearning_RayleighBenard2D_Control. Here, you will find the scripts used for the control of two-dimensional Rayleigh Benard convection (RBC) using deep reinforcement learning (DRL). The computational fluid dynamics (CFD) solver emplyed is the spectral Galerkin code-suite 'shenfun' ([Documentation](https://shenfun.readthedocs.io/en/latest/)), which solves the flow field for the RBC. The DRL is solved using learning libraries from 'Tensorforce' ([Documentation](https://tensorforce.readthedocs.io/en/latest/)); specifically, the Proximal Policy Optimisation (PPO) algorithm is used. You will need shenfun and tensorforce installed on your system to run the code.
+If using this code, please cite our paper:
+
+```
+Effective control of two-dimensional Rayleigh-Benard convection: invariant multi-agent reinforcement learning is all you need
+Colin Vignon, Jean Rabault, Joel Vasanth, Francisco Alcántara-Ávila, Mikael Mortensen, Ricardo Vinuesa
+Physics of Fluids, 2023
+```
+
+Link to:
+
+- the preprint: https://arxiv.org/abs/2304.02370
+- the paper: TODO_UPDATE
+
+## Introduction
+
+Welcome to the repository DeepReinforcementLearning_RayleighBenard2D_Control. Here, you will find the scripts used for the control of two-dimensional Rayleigh Benard convection (RBC) using deep reinforcement learning (DRL). The computational fluid dynamics (CFD) solver employed is the spectral Galerkin code-suite 'shenfun' ([Documentation](https://shenfun.readthedocs.io/en/latest/)), which solves the flow field for the RBC. The DRL is solved using learning libraries from 'Tensorforce' ([Documentation](https://tensorforce.readthedocs.io/en/latest/)); specifically, the Proximal Policy Optimisation (PPO) algorithm is used. You will need shenfun and tensorforce installed on your system to run the code.
 
 DRL is applied here using two different frameworks:
 - Single agent reinforcement learning (SARL), and
 - Multi-agent reinforcement learning (MARL).
 
-Comparitive studies for the performance of both frameworks may be performed if desired. Separate scripts that apply each framework are provided in the repository and are labelled with differently. These labels are further described below. To run either framework, you would have to run its corresponding script.
+Comparative studies for the performance of both frameworks may be performed if desired. Separate scripts that apply each framework are provided in the repository and are labelled with differently. These labels are further described below. To run either framework, you would have to run its corresponding script.
 
 Installation instructions, a short tutorial, and links to pre-computed results for validation are given below.
 
 ## Installation
+
+### Recommended: using our singularity sandbox
+
+Installing the packages can be a bit challenging due to conflicting requirements in tensorforce and shenfun. Therefore, we recommend that you use our singularity sandbox that contains all the packages needed and is ready to use out of the box. This will require having singularity installed on your machine (check the singularity documentation for more information, see https://sylabs.io/docs/ ).
+
+The singularity sandbox was created following the instructions / steps described at: https://github.com/jerabaul29/guidelines_workflow_project .
+
+The sandbox segments are available at: https://drive.google.com/drive/folders/1CMarYhkRqhBhingRpbcxU8ORKzKsykWO?usp=sharing .
+
+To use:
+
+- download the segments and the checksums file
+- check the integrity of the segments: ```sha256sum drlrbc2d.tar.gz*``` and compare with the content of the checksums file to check the integrity
+- append the segments into the image: ```cat drlrbc2d.tar.gz__part.?? > drlrbc2d.tar.gz```
+- check the integrity of the reconstructed image: compare ```sha256sum drlrbc2d.tar.gz``` with the content of the checksums file
+- untar: ```tar xfp drlrbc2d.tar.gz```, this results into a folder: this is actually the singularity sandbox
+- launch a terminal inside the sandbox: ```singularity shell --writable --fakeroot --no-home drlrbc2d```
+- at this time, your terminal is inside the singularity sandbox, and all the software is available there. To run the code, you can simply do:
+
+```
+Singularity> cd /home/2D_DeepReinforcementLearning_RayleighBenard_Control_Shenfun_Tensorforce-master
+Singularity> eval "$(/root/anaconda3/bin/conda shell.bash hook)"
+(base) Singularity> conda activate shenfun
+(shenfun) Singularity> python3 train_marl.py 
+[... the code will start running then ...]
+```
+
+I.e.: move to the folder containing the code inside the sandbox, activate conda inside the sandbox, activate the correct conda environment containing all the packages in the right versions, and run any script.
+
+Note that the sandbox is just a folder on your machine, so all the files inside the sandbox (such as data files, results of simulations and DRL trainings, etc) are available at the corresponding location if you need to use them from outside the sandbox at a later point.
+
+Also note that the code within the sandbox may not be in the latest version (we do not update the sandbox each time we push updates here), but you can simply ```git clone``` or ```cp``` the version of the code you want to the sandbox - the aim of the sandbox is mostly to distribute an environment with the necessary packages in a cross compatible set of versions, and you can run any code version you want from within it.
+
+### (not recommended): manual installation with ad hoc conda environment
 
 Use conda to install Tensorforce and shenfun in a virtual environment. If you dont have conda installed, you will have to do that first. You can find instructions for that [here](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html). Once installed, follow the steps below in your terminal (applies to Linux users):
 
@@ -46,8 +95,7 @@ pip3 install keras==2.6
 pip3 install protobuf==3.20
 ```
 
-It is important to note that the requirement for the successful installation of the above is a working Linux operating system from any major distribution (Debian, CentOS , Redhat or Ubuntu)
-
+It is important to note that the requirement for the successful installation of the above is a working Linux operating system from any major distribution (Debian, CentOS , Redhat or Ubuntu). The software stack is challenging to install as different packages have conflicting requirements: you may need to upgrade / downgrade packages by hand!
 
 ## Repository description
 
