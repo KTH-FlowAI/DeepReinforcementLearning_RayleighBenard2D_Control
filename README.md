@@ -49,7 +49,7 @@ To use:
 TODO
 ```
 
-### (not recommended): installing by hand
+### (not recommended): manual installation with ad hoc conda environment
 
 Use conda to install Tensorforce and shenfun in a virtual environment. If you dont have conda installed, you will have to do that first. You can find instructions for that [here](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html). Once installed, follow the steps below in your terminal (applies to Linux users):
 
