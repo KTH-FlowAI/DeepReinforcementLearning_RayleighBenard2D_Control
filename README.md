@@ -15,6 +15,8 @@ Link to:
 - the preprint: https://arxiv.org/abs/2304.02370
 - the paper: TODO_UPDATE
 
+## Introduction
+
 Welcome to the repository DeepReinforcementLearning_RayleighBenard2D_Control. Here, you will find the scripts used for the control of two-dimensional Rayleigh Benard convection (RBC) using deep reinforcement learning (DRL). The computational fluid dynamics (CFD) solver employed is the spectral Galerkin code-suite 'shenfun' ([Documentation](https://shenfun.readthedocs.io/en/latest/)), which solves the flow field for the RBC. The DRL is solved using learning libraries from 'Tensorforce' ([Documentation](https://tensorforce.readthedocs.io/en/latest/)); specifically, the Proximal Policy Optimisation (PPO) algorithm is used. You will need shenfun and tensorforce installed on your system to run the code.
 
 DRL is applied here using two different frameworks:
