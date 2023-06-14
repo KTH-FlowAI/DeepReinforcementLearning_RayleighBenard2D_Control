@@ -18,7 +18,7 @@ The following plots can be generated with this script, one at a time.
 6. Plots learning curve (Nu) from a single episode (ep_no), along with the baseine. x-axis is time, along with the removing control 
 7. Plots Nu after control is removed   
 
-You can plot either one, by setting the 'case' variable below to any index number above.
+You can plot either one, by setting the 'cas' variable below to any index number above.
 
 Author: Joel Vasanth | FLOW, KTH Stockholm
 
