@@ -31,7 +31,7 @@ Installation instructions, a short tutorial, and links to pre-computed results f
 
 ### Recommended: using our singularity sandbox
 
-Installing the packages can be a bit challenging due to conflicting requirements in tensorforce and shenfun. Therefore, we recommend that you use our singularity sandbox that contains all the packages needed and is ready to use out of the box. This will require having singularity installed on your machine (check the singularity documentation for more information, see https://sylabs.io/docs/ ).
+Installing the packages can be a bit challenging due to conflicting requirements in tensorforce and shenfun. Therefore, we recommend that you use our singularity sandbox that contains all the packages needed and is ready to use out of the box. This will require having singularity installed on your machine (check the singularity documentation for more information, see https://sylabs.io/docs/ ). Thanks to Francois Lambeaux ( @frlmbx ) for setting up and testing the singularity container during his internship at KTH!
 
 The singularity sandbox was created following the instructions / steps described at: https://github.com/jerabaul29/guidelines_workflow_project .
 
