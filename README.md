@@ -13,7 +13,7 @@ Physics of Fluids, 2023
 Link to:
 
 - the preprint: https://arxiv.org/abs/2304.02370
-- the paper: TODO_UPDATE
+- the paper publised at PoF: https://doi.org/10.1063/5.0153181
 
 ## Introduction
 
