@@ -57,6 +57,23 @@ Singularity> eval "$(/root/anaconda3/bin/conda shell.bash hook)"
 
 I.e.: move to the folder containing the code inside the sandbox, activate conda inside the sandbox, activate the correct conda environment containing all the packages in the right versions, and run any script.
 
+- However, the software shipped with the sandbox image may be outdated as we continue pushing minor improvements to the code. So we recommend that you create a new folder in the sandbox, clone the present repository there, and work from there on the latest code version:
+
+```
+ingularity> mkdir code_latest
+Singularity> cd code_latest/
+Singularity> git clone https://github.com/KTH-FlowAI/DeepReinforcementLearning_RayleighBenard2D_Control.git
+Cloning into 'DeepReinforcementLearning_RayleighBenard2D_Control'...
+[...]
+Singularity> eval "$(/root/anaconda3/bin/conda shell.bash hook)"
+(base) Singularity> conda activate shenfun
+(shenfun) Singularity> mkdir -p data/RB_2D_MARL
+(shenfun) Singularity> python3 train_marl.py 
+[...]
+Episodes:   9%|██                    | 1/11 [00:10, return=5.85, ts/ep=2, sec/ep=10.52, ms/ts=5258.5, agent=56.6%, comm=0.2%]
+[...]
+```
+
 Note that the sandbox is just a folder on your machine, so all the files inside the sandbox (such as data files, results of simulations and DRL trainings, etc) are available at the corresponding location if you need to use them from outside the sandbox at a later point.
 
 Also note that the code within the sandbox may not be in the latest version (we do not update the sandbox each time we push updates here), but you can simply ```git clone``` or ```cp``` the version of the code you want to the sandbox - the aim of the sandbox is mostly to distribute an environment with the necessary packages in a cross compatible set of versions, and you can run any code version you want from within it.
