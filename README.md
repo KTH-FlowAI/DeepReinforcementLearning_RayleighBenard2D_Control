@@ -35,7 +35,7 @@ Installing the packages can be a bit challenging due to conflicting requirements
 
 The singularity sandbox was created following the instructions / steps described at: https://github.com/jerabaul29/guidelines_workflow_project .
 
-The sandbox segments are available at: https://drive.google.com/drive/folders/1CMarYhkRqhBhingRpbcxU8ORKzKsykWO?usp=sharing .
+The sandbox segments are available at: https://kth-my.sharepoint.com/:f:/g/personal/fraa_ug_kth_se/EuT5HqeWx6hPmHDjHihsh2kB-fxXuSf5KH3pXmTbgYmdxw?e=VbxxrD (note: the interface may appear in Swedish, use the "three dots" button on each file and then "Ladda ned" to download). Alternatively, a mirror should be available at: https://drive.google.com/drive/folders/1CMarYhkRqhBhingRpbcxU8ORKzKsykWO?usp=sharing .
 
 To use:
 
